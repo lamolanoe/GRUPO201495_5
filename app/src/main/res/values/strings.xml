@@ -3,4 +3,10 @@
     <string name="title_home">Inicio</string>
     <string name="title_dashboard">Reciclaje</string>
     <string name="title_notifications">Tips</string>
+    <string name="usuario">Usuario:</string>
+    <string name="contrasena">Contraseña:</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="mensaje_error">Usuario y/o Contraseña Incorrectos</string>
+    <string name="bienvenido">Bienvenido</string>
+
 </resources>

@@ -19,6 +19,7 @@ public class LoginActivity extends Activity {
     private EditText etUsuario;
     private EditText etContrasena;
     private Button btnIniciar;
+    private Button btnNuevo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class LoginActivity extends Activity {
         etUsuario = (EditText) findViewById(R.id.et_usuario);
         etContrasena = (EditText) findViewById(R.id.et_contrasena);
         btnIniciar = (Button) findViewById(R.id.btn_iniciar);
+        btnNuevo = (Button) findViewById(R.id.btn_nuevo);
 
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override

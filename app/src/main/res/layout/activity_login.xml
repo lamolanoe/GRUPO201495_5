@@ -64,4 +64,11 @@
         android:layout_marginTop="20dp"
         android:text="@string/iniciar_sesion" />
 
+    <Button
+        android:id="@+id/btn_nuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="nuevo usuario" />
+
 </LinearLayout>

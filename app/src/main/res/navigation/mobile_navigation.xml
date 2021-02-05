@@ -14,12 +14,18 @@
     <fragment
         android:id="@+id/navigation_recicling"
         android:name="com.reciclaje.ui.recicling.ReciclingFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_recicling"
         tools:layout="@layout/fragment_recicling" />
 
     <fragment
-        android:id="@+id/navigation_tips"
-        android:name="com.reciclaje.ui.tips.TipsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_tips" />
+        android:id="@+id/navigation_account"
+        android:name="com.reciclaje.ui.account.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" />
+
+    <!--fragment
+        android:id="@+id/navigation_points"
+        android:name="com.reciclaje.ui.points.PointsFragment"
+        android:label="@string/title_points"
+        tools:layout="@layout/fragment_points" /-->
 </navigation>

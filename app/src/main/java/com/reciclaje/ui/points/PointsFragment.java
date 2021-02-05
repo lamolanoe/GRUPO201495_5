@@ -1,4 +1,4 @@
-package com.reciclaje.ui.tips;
+package com.reciclaje.ui.points;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.reciclaje.R;
 
-public class TipsFragment extends Fragment {
+public class PointsFragment extends Fragment {
 
-    private TipsViewModel tipsViewModel;
+    private PointsViewModel pointsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        tipsViewModel =
-                new ViewModelProvider(this).get(TipsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tips, container, false);
-        final TextView textView = root.findViewById(R.id.text_tips);
-        tipsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        pointsViewModel =
+                new ViewModelProvider(this).get(PointsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_points, container, false);
+        final TextView textView = root.findViewById(R.id.text_points);
+        pointsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

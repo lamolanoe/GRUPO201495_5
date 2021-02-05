@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Reciclaje</string>
     <string name="title_home">Inicio</string>
-    <string name="title_dashboard">Reciclaje</string>
-    <string name="title_notifications">Tips</string>
+    <string name="title_recicling">Reciclaje</string>
+    <string name="title_account">Mi cuenta</string>
+    <string name="title_points">Puntos</string>
 </resources>

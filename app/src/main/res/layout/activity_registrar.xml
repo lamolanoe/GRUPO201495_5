@@ -9,17 +9,19 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:src="@drawable/login"/>
+        android:layout_margin="20dp"
+        android:text="EDITAR CUENTA"
+        android:gravity="center"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/User"
+        android:id="@+id/RegUser"
         android:layout_margin="20dp"
         android:hint="Usuario"
         android:inputType="textEmailAddress"/>
@@ -28,34 +30,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/Pass"
+        android:id="@+id/RegPass"
         android:layout_margin="20dp"
         android:hint="Password"
         android:inputType="textPassword"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/RegNombre"
+        android:layout_margin="20dp"
+        android:hint="Nombre"
+        android:inputType="text"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/RegCiudad"
+        android:layout_margin="20dp"
+        android:hint="Ciudad"
+        android:inputType="text"/>
+
+
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnRegRegistrar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="#4CAF50"
-        android:text="Entrar"
+        android:text="Registrar"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"
         app:backgroundTint="#4CAF50" />
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnRegCancelar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
-        android:background="#8BC34A"
-        android:text="REGISTRAR"
+        android:background="#F44336"
+        android:text="Cancelar"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:backgroundTint="#8BC34A" />
+        app:backgroundTint="#F44336" />
 </LinearLayout>

@@ -9,17 +9,19 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:src="@drawable/login"/>
+        android:layout_margin="20dp"
+        android:text="CREAR NUEVO USUARIO"
+        android:gravity="center"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/User"
+        android:id="@+id/EdiUser"
         android:layout_margin="20dp"
         android:hint="Usuario"
         android:inputType="textEmailAddress"/>
@@ -28,34 +30,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/Pass"
+        android:id="@+id/EdiPass"
         android:layout_margin="20dp"
         android:hint="Password"
         android:inputType="textPassword"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/EdiNombre"
+        android:layout_margin="20dp"
+        android:hint="Nombre"
+        android:inputType="textPassword"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/Ciudad"
+        android:layout_margin="20dp"
+        android:hint="EdiCiudad"
+        android:inputType="textPassword"/>
+
+
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnEdiActualizar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="#4CAF50"
-        android:text="Entrar"
+        android:text="Actualizar"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"
         app:backgroundTint="#4CAF50" />
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnEdiCancelar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
-        android:background="#8BC34A"
-        android:text="REGISTRAR"
+        android:background="#F44336"
+        android:text="Cancelar"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:backgroundTint="#8BC34A" />
+        app:backgroundTint="#F44336" />
 </LinearLayout>

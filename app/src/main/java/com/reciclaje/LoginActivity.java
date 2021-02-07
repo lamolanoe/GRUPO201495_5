@@ -1,8 +1,6 @@
 package com.reciclaje;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,44 +8,54 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.reciclaje.R;
+import com.reciclaje.ui.account.AccountFragment;
 
-import java.sql.BatchUpdateException;
-
-public class LoginActivity extends Activity {
-
-    private EditText etUsuario;
-    private EditText etContrasena;
-    private Button btnIniciar;
-    private Button btnNuevo;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    EditText user, pass;
+    Button btnEntrar, btnRegistrar;
+    daoUsuario dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        etUsuario = (EditText) findViewById(R.id.et_usuario);
-        etContrasena = (EditText) findViewById(R.id.et_contrasena);
-        btnIniciar = (Button) findViewById(R.id.btn_iniciar);
-        btnNuevo = (Button) findViewById(R.id.btn_nuevo);
-
-        btnIniciar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (etUsuario.getText().toString().equals("grupo5") &&
-                        etContrasena.getText().toString().equals("1234")){
-                    Intent i=new Intent (LoginActivity.this, MainActivity.class);
-                    Bundle b=new Bundle();
-                    b.putString("user",etUsuario.getText().toString());
-                    i.putExtras(b);
-                    startActivity(i);
-
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), R.string.mensaje_error,
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        user=(EditText) findViewById(R.id.User);
+        pass=(EditText) findViewById(R.id.Pass);
+        btnEntrar=(Button) findViewById(R.id.btnEntrar);
+        btnRegistrar=(Button) findViewById(R.id.btnRegistrar);
+        btnEntrar.setOnClickListener(this);
+        btnRegistrar.setOnClickListener(this);
+        dao=new daoUsuario(this);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnEntrar:
+                String u=user.getText().toString();
+                String p=pass.getText().toString();
+                if(u.equals("")&&p.equals("")){
+                    Toast.makeText(this,"Error: Campos Vacios",Toast.LENGTH_LONG).show();
+                }else if (dao.login(u,p)==1){
+                    Usuario ux=dao.getUsuario(u,p);
+                    Toast.makeText(this,"Datos Correctos",Toast.LENGTH_LONG).show();
+                    Intent i2=new Intent();
+                    i2.setClass(LoginActivity.this,MainActivity.class);
+                    i2.putExtra("Id",ux.getId());
+                    startActivity(i2);
+                    finish();
+                }else {
+                    Toast.makeText(this,"Usuario y/o Password Incorrectos",Toast.LENGTH_LONG).show();
+
+                }
+
+                break;
+            case R.id.btnRegistrar:
+                Intent i=new Intent(LoginActivity.this,Registrar.class);
+                startActivity(i);
+                break;
+        }
+
+    }
+
 }

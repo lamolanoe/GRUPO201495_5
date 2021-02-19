@@ -10,7 +10,7 @@ public class ReciclingViewModel extends ViewModel {
 
     public ReciclingViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Este es el modulo de reciclaje");
+        mText.setValue("Tips de reciclaje");
     }
 
     public LiveData<String> getText() {

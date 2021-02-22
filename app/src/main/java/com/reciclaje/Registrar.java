@@ -10,10 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.reciclaje.model.dao.UsuarioDao;
+import com.reciclaje.model.entity.Usuario;
+import com.reciclaje.persona.CrearPersonaActivity;
+
 public class Registrar extends AppCompatActivity implements View.OnClickListener {
     EditText us, pas, nom, ciu;
     Button reg, can;
-    daoUsuario dao;
+    UsuarioDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
         can=(Button) findViewById(R.id.btnRegCancelar);
         reg.setOnClickListener(this);
         can.setOnClickListener(this);
-        dao=new daoUsuario(this);
+        dao=new UsuarioDao(this);
     }
 
     @Override
@@ -42,15 +46,20 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
                 u.setCiudad(ciu.getText().toString());
                 if(!u.isNull()) {
                     Toast.makeText(this, "Error: Campos Vacios", Toast.LENGTH_LONG).show();
-                }else if(dao.insertUsuario(u)){
-                    Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
-                    Intent i2 = new Intent(Registrar.this, LoginActivity.class);
-                    startActivity(i2);
-                    finish();
                 }else {
-                    Toast.makeText(this, "Usuario ya Registrado", Toast.LENGTH_LONG).show();
+                    Long id = dao.insertUsuario(u);
+                    if (id != null) {
+                        Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
+                        Bundle extras = new Bundle();
+                        Intent i2 = new Intent(Registrar.this, CrearPersonaActivity.class);
+                        extras.putString("id", id.toString());
+                        i2.putExtras(extras);
+                        startActivity(i2);
+                        finish();
+                    } else {
+                        Toast.makeText(this, "Usuario ya Registrado", Toast.LENGTH_LONG).show();
+                    }
                 }
-
                 break;
             case R.id.btnRegCancelar:
                 Intent i = new Intent(Registrar.this, LoginActivity.class);

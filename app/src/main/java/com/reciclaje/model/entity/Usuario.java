@@ -1,4 +1,4 @@
-package com.reciclaje;
+package com.reciclaje.model.entity;
 
 public class Usuario {
     int Id;

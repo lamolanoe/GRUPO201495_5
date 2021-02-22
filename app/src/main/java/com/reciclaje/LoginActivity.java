@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.reciclaje.ui.account.AccountFragment;
+import com.reciclaje.model.dao.UsuarioDao;
+import com.reciclaje.model.entity.Usuario;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText user, pass;
     Button btnEntrar, btnRegistrar;
-    daoUsuario dao;
+    UsuarioDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegistrar=(Button) findViewById(R.id.btnRegistrar);
         btnEntrar.setOnClickListener(this);
         btnRegistrar.setOnClickListener(this);
-        dao=new daoUsuario(this);
+        dao=new UsuarioDao(this);
     }
 
     @Override

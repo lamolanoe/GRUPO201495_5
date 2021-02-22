@@ -1,15 +1,15 @@
-package com.reciclaje;
+package com.reciclaje.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.reciclaje.Usuario;
+import com.reciclaje.model.entity.Usuario;
 
 import java.util.ArrayList;
 
-public class daoUsuario {
+public class UsuarioDao {
     SQLiteDatabase sql;
     ArrayList<Usuario> lista = new ArrayList<Usuario>();
     Usuario u;
@@ -18,24 +18,24 @@ public class daoUsuario {
     String tabla = "create table if not exists usuario(id integer primary key autoincrement, usuario text, pass text, nombre text,ciudad text)";
 
 
-    public daoUsuario(Context c) {
+    public UsuarioDao(Context c) {
         this.c = c;
         sql = c.openOrCreateDatabase(bd, c.MODE_PRIVATE, null);
         sql.execSQL(tabla);
         u = new Usuario();
     }
 
-    public Boolean insertUsuario(Usuario u) {
-        if (buscar(u.getUsuario()) == 0) {
+    public Long insertUsuario(Usuario u) {
+        //if (buscar(u.getUsuario()) == 0) {
             ContentValues cv = new ContentValues();
             cv.put("usuario", u.getUsuario());
             cv.put("pass", u.getPassword());
             cv.put("nombre", u.getNombre());
             cv.put("ciudad", u.getCiudad());
-            return (sql.insert("usuario", null, cv)) > 0;
-        } else {
-            return false;
-        }
+            return (sql.insert("usuario", null, cv)); //> 0;
+        //} else {
+            //return false;
+        //}
     }
 
     public int buscar(String u) {

@@ -51,7 +51,7 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
                     if (id != null) {
                         Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
                         Bundle extras = new Bundle();
-                        Intent i2 = new Intent(Registrar.this, CrearPersonaActivity.class);
+                        Intent i2 = new Intent(Registrar.this, LoginActivity.class);
                         extras.putString("id", id.toString());
                         i2.putExtras(extras);
                         startActivity(i2);

@@ -25,17 +25,17 @@ public class UsuarioDao {
         u = new Usuario();
     }
 
-    public Long insertUsuario(Usuario u) {
-        //if (buscar(u.getUsuario()) == 0) {
+    public boolean insertUsuario(Usuario u) {
+        if (buscar(u.getUsuario()) == 0) {
             ContentValues cv = new ContentValues();
             cv.put("usuario", u.getUsuario());
             cv.put("pass", u.getPassword());
             cv.put("nombre", u.getNombre());
             cv.put("ciudad", u.getCiudad());
-            return (sql.insert("usuario", null, cv)); //> 0;
-        //} else {
-            //return false;
-        //}
+            return (sql.insert("usuario", null, cv)> 0);
+        } else {
+            return false;
+        }
     }
 
     public int buscar(String u) {
@@ -100,6 +100,19 @@ public class UsuarioDao {
             }
         }
         return null;
+    }
+
+    public boolean updateUsuario(Usuario u) {
+        ContentValues cv = new ContentValues();
+        cv.put("usuario", u.getUsuario());
+        cv.put("pass", u.getPassword());
+        cv.put("nombre", u.getNombre());
+        cv.put("ciudad", u.getCiudad());
+        return (sql.update("usuario", cv,"id"+u.getId(),null)> 0);
+    }
+
+    public boolean deleteUsuario(int id){
+        return (sql.delete("usuario","id"+id,null)>0);
     }
 
 }

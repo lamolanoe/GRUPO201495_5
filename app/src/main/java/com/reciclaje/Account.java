@@ -1,4 +1,4 @@
-package com.reciclaje.ui.account;
+package com.reciclaje;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,30 +7,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.reciclaje.Editar;
-import com.reciclaje.LoginActivity;
-import com.reciclaje.Mostrar;
-import com.reciclaje.R;
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
 
-public class AccountFragment extends AppCompatActivity implements OnClickListener {
-    Button btnEditar,btnEliminar,btnMostrar,btnSalir;
-    TextView nombre;
-    int id=0;
-    Usuario u;
-    UsuarioDao dao;
+public class Account extends AppCompatActivity implements View.OnClickListener {
+Button btnEditar,btnEliminar,btnMostrar,btnSalir;
+    ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
+
+int id=0;
+Usuario u;
+UsuarioDao dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-        nombre = (TextView) findViewById(R.id.nombreUsuario);
+
         btnEditar = (Button) findViewById(R.id.btnEditar);
         btnEliminar = (Button) findViewById(R.id.btnEliminar);
         btnMostrar = (Button) findViewById(R.id.btnMostrar);
@@ -40,20 +37,26 @@ public class AccountFragment extends AppCompatActivity implements OnClickListene
         btnMostrar.setOnClickListener(this);
         btnSalir.setOnClickListener(this);
 
-        Bundle b=getIntent().getExtras();
-        id=b.getInt("Id");
-        dao=new UsuarioDao(this);
-        u=dao.getUsuarioById(id);
-        nombre.setText("Bienvenido "+u.getNombre());
+        btnHome = (ImageButton) findViewById(R.id.btnHome);
+        btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
+        btnPuntos = (ImageButton) findViewById(R.id.btnPuntos);
+
+        btnReciclar.setOnClickListener(this);
+        btnPuntos.setOnClickListener(this);
+        btnHome.setOnClickListener(this);
+
+
     }
+
+
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnEditar:
-                Intent a=new Intent(AccountFragment.this, Editar.class);
-                a.putExtra("Id",id);
+                Intent a=new Intent(Account.this,Editar.class);
+                //a.putExtra("Id",id);
                 startActivity(a);
                 break;
             case R.id.btnEliminar:
@@ -64,12 +67,12 @@ public class AccountFragment extends AppCompatActivity implements OnClickListene
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (dao.deleteUsuario(id)) {
-                            Toast.makeText(AccountFragment.this, "Registro Eliminado", Toast.LENGTH_LONG).show();
-                            Intent a = new Intent(AccountFragment.this, LoginActivity.class);
+                            Toast.makeText(Account.this, "Registro Eliminado", Toast.LENGTH_LONG).show();
+                            Intent a = new Intent(Account.this, LoginActivity.class);
                             startActivity(a);
                             finish();
                         }else{
-                            Toast.makeText(AccountFragment.this, "Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Account.this, "Error", Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -83,13 +86,29 @@ public class AccountFragment extends AppCompatActivity implements OnClickListene
                 b.show();
                 break;
             case R.id.btnMostrar:
-                Intent c=new Intent(AccountFragment.this, Mostrar.class);
+                Intent c=new Intent(Account.this,Mostrar.class);
                 startActivity(c);
                 break;
             case R.id.btnSalir:
-                Intent i2=new Intent(AccountFragment.this,LoginActivity.class);
+                Intent i2=new Intent(Account.this,LoginActivity.class);
                 startActivity(i2);
                 finish();
+                break;
+            case R.id.btnHome:
+                Intent g = new Intent(Account.this, Home.class);
+                startActivity(g);
+                break;
+            case R.id.btnReciclaje:
+                Intent p = new Intent(Account.this, Reciclaje.class);
+                startActivity(p);
+
+                break;
+            case R.id.btnPuntos:
+                Intent d = new Intent(Account.this, Puntos.class);
+                startActivity(d);
+                break;
+            case R.id.btnCuenta:
+
                 break;
         }
     }

@@ -6,19 +6,18 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
+
     <item
         android:id="@+id/navigation_recicling"
         android:icon="@drawable/ic_recicling_black"
         android:title="@string/title_recicling" />
 
     <item
+        android:id="@+id/navigation_points"
+        android:icon="@drawable/ic_points_black"
+        android:title="@string/title_points" />
+    <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_account_black"
         android:title="@string/title_account" />
-
-    <!--item
-        android:id="@+id/navigation_points"
-        android:icon="@drawable/ic_points_black"
-        android:title="@string/title_points" /-->
-
 </menu>

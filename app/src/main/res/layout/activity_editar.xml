@@ -23,6 +23,7 @@
         android:layout_weight="1"
         android:id="@+id/EdiUser"
         android:layout_margin="20dp"
+        android:enabled="false"
         android:hint="Usuario"
         android:inputType="textEmailAddress"/>
 
@@ -42,15 +43,15 @@
         android:id="@+id/EdiNombre"
         android:layout_margin="20dp"
         android:hint="Nombre"
-        android:inputType="textPassword"/>
+        android:inputType="text"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/Ciudad"
+        android:id="@+id/EdiCiudad"
         android:layout_margin="20dp"
         android:hint="EdiCiudad"
-        android:inputType="textPassword"/>
+        android:inputType="text"/>
 
 
     <Button

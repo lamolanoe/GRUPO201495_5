@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
+import com.reciclaje.ui.account.AccountFragment;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText user, pass;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Usuario ux=dao.getUsuario(u,p);
                     Toast.makeText(this,"Datos Correctos",Toast.LENGTH_LONG).show();
                     Intent i2=new Intent();
-                    i2.setClass(LoginActivity.this,MainActivity.class);
+                    i2.setClass(LoginActivity.this, Home.class);
                     i2.putExtra("Id",ux.getId());
                     startActivity(i2);
                     finish();

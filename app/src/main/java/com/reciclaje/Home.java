@@ -20,11 +20,17 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     Usuario u;
     UsuarioDao dao;
 
+    String idUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Bundle parametros = this.getIntent().getExtras();
+        if (parametros != null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
 
         nombre = (TextView) findViewById(R.id.nombreUsuario);
 
@@ -54,7 +60,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 startActivity(c);
                 break;
             case R.id.btnCuenta:
+                Bundle extras = new Bundle();
                 Intent d = new Intent(Home.this, Account.class);
+                extras.putString("Id", idUsuario);
+                d.putExtras(extras);
                 startActivity(d);
                 break;
 

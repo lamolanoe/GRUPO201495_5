@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,8 +48,9 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
                 persona.setApellido(((EditText) findViewById(R.id.crearApellido)).getText().toString());
                 persona.setCorreo(((EditText) findViewById(R.id.crearCorreo)).getText().toString());
                 persona.setTelefono(((EditText) findViewById(R.id.crearTelefono)).getText().toString());
-                persona.setIdUsuario(idUsuario);
+                persona.setIdUsuario(Integer.parseInt(idUsuario));
                 Long idPersona = personaDao.createPersona(persona);
+
 
                 Intent intent = new Intent(CrearPersonaActivity.this, MainActivity.class);
                 startActivity(intent);

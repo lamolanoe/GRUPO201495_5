@@ -47,7 +47,7 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
                 if(!u.isNull()) {
                     Toast.makeText(this, "Error: Campos Vacios", Toast.LENGTH_LONG).show();
                 }else {
-                    Boolean id = dao.insertUsuario(u);
+                    Long id = dao.insertUsuario(u);
                     if (id != null) {
                         Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
                         Bundle extras = new Bundle();

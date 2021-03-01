@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Reciclaje">
-        <activity android:name=".Puntos"></activity>
-        <activity android:name=".Reciclaje" />
+        <activity
+            android:name=".Puntos"
+            android:label="Puntos" />
+        <activity
+            android:name=".Reciclaje"
+            android:label="Reciclaje" />
         <activity android:name=".Home" />
-        <activity android:name=".Account" />
+        <activity
+            android:name=".Account"
+            android:label="Mi Cuenta" />
         <activity android:name=".Activity_inicio" />
         <activity android:name=".Editar" />
         <activity android:name=".Mostrar" />
@@ -28,6 +34,16 @@
         <activity
             android:name=".persona.CrearPersonaActivity"
             android:label="Crear Persona">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".persona.MostrarEditarPersonaActivity"
+            android:label="Detalle"
+            android:parentActivityName=".Account">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

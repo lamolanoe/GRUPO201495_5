@@ -4,18 +4,17 @@ import java.util.UUID;
 
 public class Persona {
 
-    private String idPersona;
+    private Integer idPersona;
     private String nombre;
     private String apellido;
     private String correo;
     private String telefono;
-    private String idUsuario;
+    private Integer idUsuario;
 
     public Persona(){}
 
     public Persona(String idPersona, String nombre, String apellido,
-                  String correo, String telefono, String idUsuario) {
-        this.idPersona = UUID.randomUUID().toString();
+                  String correo, String telefono, Integer idUsuario) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -23,11 +22,11 @@ public class Persona {
         this.idUsuario = idUsuario;
     }
 
-    public String getIdPersona() {
+    public Integer getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(String idPersona) {
+    public void setIdPersona(Integer idPersona) {
         this.idPersona = idPersona;
     }
 
@@ -63,11 +62,11 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public String getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 }

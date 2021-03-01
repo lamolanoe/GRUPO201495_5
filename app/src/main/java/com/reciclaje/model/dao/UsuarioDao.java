@@ -25,16 +25,16 @@ public class UsuarioDao {
         u = new Usuario();
     }
 
-    public boolean insertUsuario(Usuario u) {
+    public Long insertUsuario(Usuario u) {
         if (buscar(u.getUsuario()) == 0) {
             ContentValues cv = new ContentValues();
             cv.put("usuario", u.getUsuario());
             cv.put("pass", u.getPassword());
             cv.put("nombre", u.getNombre());
             cv.put("ciudad", u.getCiudad());
-            return (sql.insert("usuario", null, cv)> 0);
+            return (sql.insert("usuario", null, cv));
         } else {
-            return false;
+            return null;
         }
     }
 

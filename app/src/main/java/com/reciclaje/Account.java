@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
+import com.reciclaje.persona.MostrarEditarPersonaActivity;
 
 public class Account extends AppCompatActivity implements View.OnClickListener {
 Button btnEditar,btnEliminar,btnMostrar,btnSalir;
@@ -23,10 +24,18 @@ Button btnEditar,btnEliminar,btnMostrar,btnSalir;
 int id=0;
 Usuario u;
 UsuarioDao dao;
+
+    String idUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+        Bundle parametros = this.getIntent().getExtras();
+        if (parametros != null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
 
         btnEditar = (Button) findViewById(R.id.btnEditar);
         btnEliminar = (Button) findViewById(R.id.btnEliminar);
@@ -86,7 +95,10 @@ UsuarioDao dao;
                 b.show();
                 break;
             case R.id.btnMostrar:
-                Intent c=new Intent(Account.this,Mostrar.class);
+                Bundle extras = new Bundle();
+                Intent c=new Intent(Account.this, MostrarEditarPersonaActivity.class);
+                extras.putString("Id", idUsuario);
+                c.putExtras(extras);
                 startActivity(c);
                 break;
             case R.id.btnSalir:

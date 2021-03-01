@@ -35,7 +35,10 @@
                 android:layout_weight="1"
                 android:inputType="none"
                 android:text="Nombre"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
 
             <EditText
                 android:id="@+id/editNombrePersona"
@@ -53,7 +56,10 @@
                 android:layout_weight="1"
                 android:inputType="none"
                 android:text="Apellido"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
 
             <EditText
                 android:id="@+id/editapellidoPersona"
@@ -63,6 +69,28 @@
                 android:layout_weight="1"
                 android:inputType="text" />
 
+            <!--EditText
+                android:id="@+id/usuarioPersona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="Usuario"
+                android:textStyle="bold"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false"/>
+
+            <EditText
+                android:id="@+id/editUsuarioPersona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:inputType="none|text"
+                android:enabled="false" /-->
+
             <EditText
                 android:id="@+id/correoPersona"
                 android:layout_width="match_parent"
@@ -71,7 +99,10 @@
                 android:layout_weight="1"
                 android:inputType="textEmailAddress"
                 android:text="Correo"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
 
             <EditText
                 android:id="@+id/editCorreoPersona"
@@ -88,7 +119,10 @@
                 android:layout_margin="0dp"
                 android:layout_weight="1"
                 android:text="Telefono"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false" />
 
             <EditText
                 android:id="@+id/editTelefonoPersona"

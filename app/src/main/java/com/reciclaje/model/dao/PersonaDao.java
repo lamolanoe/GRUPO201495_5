@@ -34,9 +34,9 @@ public class PersonaDao {
         return (sqLiteDatabase.insert("persona", null, contentValues));
     }
 
-    public Persona getPersonaByIdUsuario(String id) {
+    public Persona getPersonaByIdPersona(String idPersona) {
         Persona persona = new Persona();
-        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM persona where idUsuario = ?", new String[] {id});
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM persona where idPersona = ?", new String[] {idPersona});
         if (c.moveToLast()) {
             persona.setIdPersona(c.getInt(c.getColumnIndex("idPersona")));
             persona.setNombre(c.getString(c.getColumnIndex("nombre")));
@@ -47,5 +47,29 @@ public class PersonaDao {
             return persona;
         }
         return null;
+    }
+
+    public Persona getPersonaByIdUsuario(String idUsuario) {
+        Persona persona = new Persona();
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM persona where idUsuario = ?", new String[] {idUsuario});
+        if (c.moveToLast()) {
+            persona.setIdPersona(c.getInt(c.getColumnIndex("idPersona")));
+            persona.setNombre(c.getString(c.getColumnIndex("nombre")));
+            persona.setApellido(c.getString(c.getColumnIndex("apellido")));
+            persona.setCorreo(c.getString(c.getColumnIndex("correo")));
+            persona.setTelefono(c.getString(c.getColumnIndex("telefono")));
+            persona.setIdUsuario(c.getInt(c.getColumnIndex("idUsuario")));
+            return persona;
+        }
+        return null;
+    }
+
+    public int updatePersona(Persona persona) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nombre", persona.getNombre());
+        contentValues.put("apellido", persona.getApellido());
+        contentValues.put("correo", persona.getCorreo());
+        contentValues.put("telefono", persona.getTelefono());
+        return (sqLiteDatabase.update("persona", contentValues,"idPersona=?",new String[] {persona.getIdPersona().toString()}));
     }
 }

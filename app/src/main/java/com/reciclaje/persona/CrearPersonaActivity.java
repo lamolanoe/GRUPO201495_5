@@ -64,8 +64,6 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
                 break;
         }
 
-
-
     }
 
 }

@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
-import com.reciclaje.ui.account.AccountFragment;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText user, pass;

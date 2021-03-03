@@ -8,18 +8,30 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.reciclaje.Account;
+import com.reciclaje.Home;
 import com.reciclaje.MainActivity;
+import com.reciclaje.Puntos;
 import com.reciclaje.R;
+import com.reciclaje.Reciclaje;
 import com.reciclaje.model.dao.PersonaDao;
+import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Persona;
+import com.reciclaje.model.entity.Usuario;
 
-public class MostrarEditarPersonaActivity extends AppCompatActivity {
+public class MostrarEditarPersonaActivity extends AppCompatActivity implements View.OnClickListener{
 
+    ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
+    Button guardar;
+    EditText et_nombre, et_apellido, et_usuario, et_email, et_telefono;
     String idUsuario;
     PersonaDao personaDao;
     Persona persona;
+    UsuarioDao usuarioDao;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,26 +43,44 @@ public class MostrarEditarPersonaActivity extends AppCompatActivity {
             idUsuario = getIntent().getStringExtra("Id");
         }
 
-        personaDao = new PersonaDao(this);
-        persona = personaDao.getPersonaByIdUsuario(idUsuario);
+        btnHome = (ImageButton) findViewById(R.id.btnHome);
+        btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
+        btnPuntos = (ImageButton) findViewById(R.id.btnPuntos);
+        btnCuenta = (ImageButton) findViewById(R.id.btnCuenta);
 
-        EditText et_nombre = findViewById(R.id.editNombrePersona);
+        btnReciclar.setOnClickListener(this);
+        btnPuntos.setOnClickListener(this);
+        btnHome.setOnClickListener(this);
+        btnCuenta.setOnClickListener(this);
+
+        guardar=(Button) findViewById(R.id.editPersona);
+        guardar.setOnClickListener(this);
+
+        personaDao = new PersonaDao(this);
+        usuarioDao = new UsuarioDao(this);
+        persona = personaDao.getPersonaByIdUsuario(idUsuario);
+        usuario = usuarioDao.getUsuarioById(Integer.parseInt(idUsuario));
+
+        et_nombre = findViewById(R.id.editNombrePersona);
         et_nombre.setText(persona.getNombre());
-        EditText et_apellido = findViewById(R.id.editapellidoPersona);
+        et_apellido = findViewById(R.id.editapellidoPersona);
         et_apellido.setText(persona.getApellido());
-        /*EditText et_usuario = findViewById(R.id.editUsuarioPersona);
-        et_usuario.setText("laura");*/
-        EditText et_email = findViewById(R.id.editCorreoPersona);
+        et_usuario = findViewById(R.id.editUsuarioPersona);
+        et_usuario.setText(usuario.getUsuario());
+        et_email = findViewById(R.id.editCorreoPersona);
         et_email.setText(persona.getCorreo());
-        EditText et_telefono = findViewById(R.id.editTelefonoPersona);
+        et_telefono = findViewById(R.id.editTelefonoPersona);
         et_telefono.setText(persona.getTelefono());
 
-        Button btnEditPersona = (Button) findViewById(R.id.editPersona);
-        btnEditPersona.setOnClickListener(new View.OnClickListener() {
+    }
 
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
 
+        Persona persona = new Persona();
+
+        switch (v.getId()) {
+            case R.id.editPersona:
                 persona.setNombre(et_nombre.getText().toString());
                 persona.setApellido(et_apellido.getText().toString());
                 persona.setCorreo(et_email.getText().toString());
@@ -65,9 +95,33 @@ public class MostrarEditarPersonaActivity extends AppCompatActivity {
                     error.setGravity(Gravity.RIGHT, 0, 0);
                     error.show();
                 }
-            }
-        });
-    }
 
+                break;
+
+            /*case R.id.btnCancelar:
+                Intent i = new Intent(CrearPersonaActivity.this, MainActivity.class);
+                startActivity(i);
+
+                break;*/
+
+            case R.id.btnHome:
+                Intent g = new Intent(MostrarEditarPersonaActivity.this, Home.class);
+                startActivity(g);
+                break;
+            case R.id.btnReciclaje:
+                Intent p = new Intent(MostrarEditarPersonaActivity.this, Reciclaje.class);
+                startActivity(p);
+                break;
+            case R.id.btnPuntos:
+                Intent d = new Intent(MostrarEditarPersonaActivity.this, Puntos.class);
+                startActivity(d);
+                break;
+            case R.id.btnCuenta:
+                Intent c = new Intent(MostrarEditarPersonaActivity.this, Account.class);
+                startActivity(c);
+                break;
+        }
+
+    }
 
 }

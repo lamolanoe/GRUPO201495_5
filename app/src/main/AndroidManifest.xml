@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Reciclaje">
+        <activity android:name=".CambioPasswordActivity"
+            android:label="Cambiar contraseña"
+            android:parentActivityName=".Account"></activity>
         <activity
             android:name=".Puntos"
             android:label="Puntos" />

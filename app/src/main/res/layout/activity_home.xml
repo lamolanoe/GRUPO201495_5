@@ -11,7 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
+        <Button
+            android:id="@+id/btnlink"
+            android:text="Noticias de interes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#4CAF50" />
 
         <TextView
             android:id="@+id/nombreUsuario"
@@ -20,6 +25,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="¡Bienvenido!" />
+
+
 
         <ImageView
             android:layout_width="match_parent"

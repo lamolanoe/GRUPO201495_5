@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnlink;
     private String direccion;
-
+    ImageView foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         btnCuenta.setOnClickListener(this);
         btnlink = (Button)findViewById(R.id.btnlink);
         direccion="";
-
+        foto = findViewById(R.id.foto);
         btnlink.setOnClickListener(this);
     }
 

@@ -12,9 +12,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
-import com.reciclaje.model.entity.Persona;
-import com.reciclaje.persona.CrearPersonaActivity;
-import com.reciclaje.persona.MostrarEditarPersonaActivity;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class CambioPasswordActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -57,7 +57,9 @@ public class CambioPasswordActivity extends AppCompatActivity implements View.On
                 password = ((EditText) findViewById(R.id.cambiarContraseña)).getText().toString();
                 repetirPassword = ((EditText) findViewById(R.id.repiteContraseña)).getText().toString();
                 if (password.equals(repetirPassword)){
-                    int result = usuarioDao.updatePassword(idUsuario, password);
+
+                    String pass = codePassword(password);
+                    int result = usuarioDao.updatePassword(idUsuario, pass);
                     if (result == 1){
                         Toast exitoso = Toast.makeText(getApplicationContext(), "Se cambio la contraseña exitosamente", Toast.LENGTH_LONG);
                         exitoso.setGravity(Gravity.RIGHT, 200, 50);
@@ -95,4 +97,24 @@ public class CambioPasswordActivity extends AppCompatActivity implements View.On
         }
 
     }
+
+    public String codePassword(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
+
 }

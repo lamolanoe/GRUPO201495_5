@@ -14,6 +14,9 @@ import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
 import com.reciclaje.persona.CrearPersonaActivity;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Registrar extends AppCompatActivity implements View.OnClickListener {
     EditText us, pas, nom, ciu;
     Button reg, can;
@@ -41,7 +44,8 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
             case R.id.btnRegRegistrar:
                 Usuario u = new Usuario();
                 u.setUsuario(us.getText().toString());
-                u.setPassword(pas.getText().toString());
+                String pass = pas.getText().toString();
+                u.setPassword(codePassword(pass));
                 u.setNombre(nom.getText().toString());
                 u.setCiudad(ciu.getText().toString());
                 if(!u.isNull()) {
@@ -67,5 +71,24 @@ public class Registrar extends AppCompatActivity implements View.OnClickListener
                 finish();
                 break;
         }
+    }
+
+    public String codePassword(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 }

@@ -11,6 +11,9 @@ import android.widget.Toast;
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText user, pass;
     Button btnEntrar, btnRegistrar;
@@ -34,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.btnEntrar:
                 String u=user.getText().toString();
-                String p=pass.getText().toString();
+                String p=codePassword(pass.getText().toString());
                 if(u.equals("")&&p.equals("")){
                     Toast.makeText(this,"Error: Campos Vacios",Toast.LENGTH_LONG).show();
                 }else if (dao.login(u,p)==1){
@@ -60,4 +63,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    public String codePassword(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
 }

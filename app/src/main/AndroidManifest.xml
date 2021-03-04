@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Reciclaje">
+        <activity android:name=".activity_tips"></activity>
         <activity
             android:name=".Puntos"
             android:label="Puntos" />
@@ -19,7 +20,7 @@
         <activity
             android:name=".Account"
             android:label="Mi Cuenta" />
-        <activity android:name=".Activity_inicio" />
+        <activity android:name=".Inicio" />
         <activity android:name=".Editar" />
         <activity android:name=".Mostrar" />
         <activity android:name=".Registrar" />

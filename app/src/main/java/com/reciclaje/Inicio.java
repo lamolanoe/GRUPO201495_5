@@ -8,16 +8,16 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Activity_inicio extends AppCompatActivity {
+public class Inicio extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        TimerTask tarea = new TimerTask() {
+        TimerTask tarea =  new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(Activity_inicio.this,LoginActivity.class );
+                Intent intent = new Intent(Inicio.this,LoginActivity.class );
                 startActivity(intent);
                 finish();
             }

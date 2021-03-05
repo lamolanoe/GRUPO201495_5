@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
@@ -18,8 +19,8 @@ public class Reciclaje extends AppCompatActivity implements View.OnClickListener
    int id=0;
 Usuario u;
 UsuarioDao dao;
-
     String idUsuario;
+    ImageView como_reciclar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ UsuarioDao dao;
         btnHome.setOnClickListener(this);
         btnPuntos.setOnClickListener(this);
         btnCuenta.setOnClickListener(this);
+
+     como_reciclar = findViewById(R.id.como_reciclar);
     }
 
     @Override

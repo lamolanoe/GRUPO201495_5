@@ -61,17 +61,24 @@
                 android:text="Tips de reciclaje" />
         </LinearLayout>
 
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            android:layout_weight="1"
+            android:src="@drawable/como_reciclar"
+            android:id="@+id/como_reciclar"/>
+
           <TextView
             android:id="@+id/text_recicling"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Aqui se mostraran algunos tips para uso correcto de reciclaje"
+            android:text="Necesitamos tomar conciencia y aplicar medidas para cambiar nuestros hábitos y disminuir la generación de residuos."
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#000000"
             app:backgroundTint="#ffffff"
-            android:textSize="18dp"/>
+            android:textSize="12dp"/>
 
         <ImageView
             android:layout_width="match_parent"

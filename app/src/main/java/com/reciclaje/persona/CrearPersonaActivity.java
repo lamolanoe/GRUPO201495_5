@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.storage.StorageManager;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.reciclaje.Home;
 import com.reciclaje.MainActivity;
 import com.reciclaje.R;
 import com.reciclaje.model.dao.PersonaDao;
@@ -33,7 +36,7 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
         guardar=(Button) findViewById(R.id.btnCrearPersona);
         //cancelar=(Button) findViewById(R.id.btnCancelar);
         guardar.setOnClickListener(this);
-        cancelar.setOnClickListener(this);
+        //cancelar.setOnClickListener(this);
         personaDao = new PersonaDao(this);
     }
 
@@ -51,8 +54,20 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
                 persona.setIdUsuario(Integer.parseInt(idUsuario));
                 Long idPersona = personaDao.createPersona(persona);
 
+                if (idPersona != null) {
+                    Toast exitoso = Toast.makeText(getApplicationContext(), "Información guardada exitosamente", Toast.LENGTH_LONG);
+                    exitoso.setGravity(Gravity.RIGHT, 200, 50);
+                    exitoso.show();
+                } else {
+                    Toast error = Toast.makeText(getApplicationContext(), "Error al guardar la información", Toast.LENGTH_LONG);
+                    error.setGravity(Gravity.RIGHT, 200, 50);
+                    error.show();
+                }
 
-                Intent intent = new Intent(CrearPersonaActivity.this, MainActivity.class);
+                Bundle extras = new Bundle();
+                Intent intent = new Intent(CrearPersonaActivity.this, Home.class);
+                extras.putString("id", idUsuario);
+                intent.putExtras(extras);
                 startActivity(intent);
 
                 break;

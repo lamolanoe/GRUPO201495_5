@@ -61,6 +61,10 @@ public class CambioPasswordActivity extends AppCompatActivity implements View.On
                     String pass = codePassword(password);
                     int result = usuarioDao.updatePassword(idUsuario, pass);
                     if (result == 1){
+                        EditText et_pass = findViewById(R.id.cambiarContraseña);
+                        et_pass.setText("");
+                        EditText et_repetir = findViewById(R.id.repiteContraseña);
+                        et_repetir.setText("");
                         Toast exitoso = Toast.makeText(getApplicationContext(), "Se cambio la contraseña exitosamente", Toast.LENGTH_LONG);
                         exitoso.setGravity(Gravity.RIGHT, 200, 50);
                         exitoso.show();

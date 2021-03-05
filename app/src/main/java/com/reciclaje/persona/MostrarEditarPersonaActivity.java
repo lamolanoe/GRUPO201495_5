@@ -77,8 +77,6 @@ public class MostrarEditarPersonaActivity extends AppCompatActivity implements V
     @Override
     public void onClick(View v) {
 
-        Persona persona = new Persona();
-
         switch (v.getId()) {
             case R.id.editPersona:
                 persona.setNombre(et_nombre.getText().toString());

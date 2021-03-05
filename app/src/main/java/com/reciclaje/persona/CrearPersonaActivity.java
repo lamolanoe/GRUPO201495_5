@@ -31,7 +31,7 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
         }
 
         guardar=(Button) findViewById(R.id.btnCrearPersona);
-        cancelar=(Button) findViewById(R.id.btnCancelar);
+        //cancelar=(Button) findViewById(R.id.btnCancelar);
         guardar.setOnClickListener(this);
         cancelar.setOnClickListener(this);
         personaDao = new PersonaDao(this);
@@ -57,11 +57,11 @@ public class CrearPersonaActivity extends AppCompatActivity implements View.OnCl
 
                 break;
 
-            case R.id.btnCancelar:
+            /*case R.id.btnCancelar:
                 Intent i = new Intent(CrearPersonaActivity.this, MainActivity.class);
                 startActivity(i);
 
-                break;
+                break;*/
         }
 
     }

@@ -1,7 +1,5 @@
 package com.reciclaje.model.entity;
 
-import java.util.UUID;
-
 public class Persona {
 
     private Integer idPersona;

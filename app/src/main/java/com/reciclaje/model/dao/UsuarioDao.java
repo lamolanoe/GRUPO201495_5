@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.reciclaje.model.entity.Persona;
 import com.reciclaje.model.entity.Usuario;
 
 import java.util.ArrayList;
@@ -113,6 +114,12 @@ public class UsuarioDao {
 
     public boolean deleteUsuario(int id){
         return (sql.delete("usuario","id"+id,null)>0);
+    }
+
+    public int updatePassword(String idUsuario, String password) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("pass", password);
+        return (sql.update("usuario", contentValues,"id=?",new String[] {idUsuario}));
     }
 
 }

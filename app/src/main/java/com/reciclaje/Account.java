@@ -18,7 +18,7 @@ import com.reciclaje.model.entity.Usuario;
 import com.reciclaje.persona.MostrarEditarPersonaActivity;
 
 public class Account extends AppCompatActivity implements View.OnClickListener {
-Button btnEditar,btnEliminar,btnMostrar,btnSalir;
+Button btnEditar,btnEliminar,btnMostrar,btnSalir, btnCambiarPassword;
     ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
 
 int id=0;
@@ -54,6 +54,8 @@ UsuarioDao dao;
         btnPuntos.setOnClickListener(this);
         btnHome.setOnClickListener(this);
 
+        btnCambiarPassword = (Button) findViewById(R.id.btnCambiarPassword);
+        btnCambiarPassword.setOnClickListener(this);
 
     }
 
@@ -121,6 +123,13 @@ UsuarioDao dao;
                 break;
             case R.id.btnCuenta:
 
+                break;
+            case R.id.btnCambiarPassword:
+                Bundle e = new Bundle();
+                Intent cp = new Intent(Account.this, CambioPasswordActivity.class);
+                e.putString("Id", idUsuario);
+                cp.putExtras(e);
+                startActivity(cp);
                 break;
         }
     }

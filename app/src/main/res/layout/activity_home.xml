@@ -11,7 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
+        <Button
+            android:id="@+id/btnlink"
+            android:text="Noticias de interes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#4CAF50" />
 
         <TextView
             android:id="@+id/nombreUsuario"
@@ -19,13 +24,20 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="¡Bienvenido!" />
+            android:text="Por ti, por nosotros y por todos los que vendrán... ¡Recicla!"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:backgroundTint="#ffffff"
+            android:textSize="20dp"/>
+
+
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:src="@drawable/user" />
+            android:layout_weight="1"
+            android:src="@drawable/reciclaje"
+            android:id="@+id/foto"/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -3,15 +3,19 @@ package com.reciclaje;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
+
+import java.net.URI;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
     ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
@@ -21,6 +25,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     UsuarioDao dao;
 
     String idUsuario;
+
+    private Button btnlink;
+    private String direccion;
+    ImageView foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +49,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         btnReciclar.setOnClickListener(this);
         btnPuntos.setOnClickListener(this);
         btnCuenta.setOnClickListener(this);
-
-
-
+        btnlink = (Button)findViewById(R.id.btnlink);
+        direccion="";
+        foto = findViewById(R.id.foto);
+        btnlink.setOnClickListener(this);
     }
 
     @Override
@@ -66,9 +75,21 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 d.putExtras(extras);
                 startActivity(d);
                 break;
+            case R.id.btnlink:
+            direccion="https://www.eltiempo.com/noticias/reciclaje-en-bogota";
+            irAweb(direccion);
+                break;
 
+                default:
+                break;
 
-        }
+}
+    }
+
+    public void irAweb(String d){
+        Uri uri = Uri.parse(d);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 }
 

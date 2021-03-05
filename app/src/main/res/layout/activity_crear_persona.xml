@@ -61,7 +61,7 @@
             android:textStyle="bold"
             app:backgroundTint="#4CAF50" />
 
-        <Button
+        <!--Button
             android:id="@+id/btnCancelar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,7 +72,7 @@
             android:textColor="#ffffff"
             android:textSize="30dp"
             android:textStyle="bold"
-            app:backgroundTint="#F44336" />
+            app:backgroundTint="#F44336" /-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

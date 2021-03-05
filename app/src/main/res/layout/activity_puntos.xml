@@ -7,47 +7,65 @@
     tools:context=".Puntos">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
-
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="-130dp">
 
 
         <TextView
             android:id="@+id/text_maps"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Puntos de Atencion"
+            android:layout_height="708dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:gravity="center"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Puntos de Atencion" />
+
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="217dp"
             android:layout_weight="0.2"
             android:src="@drawable/user" />
+
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="#4CAF50"
+            android:text="Scan"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:backgroundTint="#4CAF50" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/txtResultado"
+            android:layout_margin="20dp"
+            android:hint="" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_gravity="bottom"
             android:layout_margin="1dp"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
 
             <ImageButton
                 android:id="@+id/btnHome"
                 android:layout_width="match_parent"
-                android:layout_gravity="bottom"
                 android:layout_height="50dp"
+                android:layout_gravity="bottom"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_home_black_24dp"
@@ -67,8 +85,8 @@
                 android:id="@+id/btnPuntos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="2dp"
                 android:layout_gravity="bottom"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_points_black"
                 tools:ignore="VectorDrawableCompat" />
@@ -77,8 +95,8 @@
                 android:id="@+id/btnCuenta"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="2dp"
                 android:layout_gravity="bottom"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_account_black"
                 tools:ignore="VectorDrawableCompat" />

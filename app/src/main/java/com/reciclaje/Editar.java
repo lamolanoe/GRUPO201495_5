@@ -33,11 +33,11 @@ public class Editar extends AppCompatActivity implements View.OnClickListener {
         btnActualizar.setOnClickListener(this);
         btnCancelar.setOnClickListener(this);
 
-       // Bundle b = getIntent().getExtras();
-        //id = b.getInt("Id");
-       // dao = new UsuarioDao(this);
-       // u = dao.getUsuarioById(id);
-       // ediUser.setText(u.getUsuario());
+        Bundle b = getIntent().getExtras();
+        id = b.getInt("Id");
+        dao = new UsuarioDao(this);
+        u = dao.getUsuarioById(id);
+        ediUser.setText(u.getUsuario());
 
     }
 

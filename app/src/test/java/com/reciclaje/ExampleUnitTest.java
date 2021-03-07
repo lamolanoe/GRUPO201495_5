@@ -14,4 +14,10 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+    public void test_conexion(){
+        assertNotNull(null);
+    }
+    public void test_pasa(){
+        assertTrue(5<1);
+    }
 }

@@ -1,5 +1,6 @@
 package com.reciclaje;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -17,10 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ImageButton;
 
-public class Localidad extends AppCompatActivity implements OnMapReadyCallback {
+public class Localidad extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
 
-    MapView mapa;
+    ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
     private GoogleMap mMap;
 
     @Override
@@ -28,8 +30,14 @@ public class Localidad extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localidad);
 
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
+        btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
+        btnHome = (ImageButton) findViewById(R.id.btnHome);
+        btnPuntos = (ImageButton) findViewById(R.id.btnPuntos);
+        btnCuenta = (ImageButton) findViewById(R.id.btnCuenta);
+        btnReciclar.setOnClickListener(this);
+        btnHome.setOnClickListener(this);
+        btnPuntos.setOnClickListener(this);
+        btnCuenta.setOnClickListener(this);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
         .findFragmentById(R.id.map);
@@ -50,5 +58,29 @@ public class Localidad extends AppCompatActivity implements OnMapReadyCallback {
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(4.60971, -74.08175), 10));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(4.71279059583009, -74.07128600147612)));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.btnHome:
+                Intent b = new Intent(Localidad.this, Home.class);
+                startActivity(b);
+                break;
+
+            case R.id.btnPuntos:
+                Intent c = new Intent(Localidad.this, Puntos.class);
+                startActivity(c);
+                break;
+            case R.id.btnCuenta:
+                Intent d = new Intent(Localidad.this, Account.class);
+                startActivity(d);
+                break;
+            case R.id.btnReciclaje:
+                Intent p = new Intent(Localidad.this, Reciclaje.class);
+                startActivity(p);
+                break;
+        }
     }
 }

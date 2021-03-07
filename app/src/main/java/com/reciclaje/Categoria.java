@@ -29,8 +29,8 @@ ImageView basura;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         blanco = findViewById(R.id.blanco);
         negro = findViewById(R.id.negro);
         verde = findViewById(R.id.verde);

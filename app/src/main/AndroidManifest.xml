@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reciclaje">
         <activity
+            android:name=".Categoria"
+            android:label="Categoría"
+            android:parentActivityName=".Reciclaje"/>
+        <activity
             android:name=".Localidad"
             android:label="Mapa"
             android:parentActivityName=".Reciclaje" />

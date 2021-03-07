@@ -32,6 +32,7 @@ UsuarioDao dao;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        dao = new UsuarioDao(this);
 
         Bundle parametros = this.getIntent().getExtras();
         if (parametros != null){
@@ -78,7 +79,7 @@ UsuarioDao dao;
                 b.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (dao.deleteUsuario(id)) {
+                        if (dao.deleteUsuario(Integer.valueOf(idUsuario))) {
                             Toast.makeText(Account.this, "Registro Eliminado", Toast.LENGTH_LONG).show();
                             Intent a = new Intent(Account.this, LoginActivity.class);
                             startActivity(a);

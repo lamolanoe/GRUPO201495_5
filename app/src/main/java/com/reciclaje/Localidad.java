@@ -1,74 +1,24 @@
 package com.reciclaje;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 
-import com.reciclaje.model.dao.UsuarioDao;
-import com.reciclaje.model.entity.Usuario;
-
-public class Localidad extends AppCompatActivity implements View.OnClickListener {
-
-    ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
-
-    int id=0;
-    Usuario u;
-    UsuarioDao dao;
-
-    String idUsuario;
-
+public class Localidad extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localidad);
-
-        Bundle parametros = this.getIntent().getExtras();
-        if (parametros != null){
-            idUsuario = getIntent().getStringExtra("Id");
-        }
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
-
-        btnHome = (ImageButton) findViewById(R.id.btnHome);
-        btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
-        btnPuntos = (ImageButton) findViewById(R.id.btnPuntos);
-
-        btnReciclar.setOnClickListener(this);
-        btnPuntos.setOnClickListener(this);
-        btnHome.setOnClickListener(this);
-
-
-
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-
-
-            case R.id.btnHome:
-                Intent g = new Intent(Localidad.this, Home.class);
-                startActivity(g);
-                break;
-            case R.id.btnReciclaje:
-                Intent p = new Intent(Localidad.this, Reciclaje.class);
-                startActivity(p);
-
-                break;
-            case R.id.btnPuntos:
-                Intent d = new Intent(Localidad.this, Puntos.class);
-                startActivity(d);
-                break;
-            case R.id.btnCuenta:
-
-                break;
-
-        }
     }
 }

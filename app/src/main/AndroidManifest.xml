@@ -21,34 +21,16 @@
             android:name=".Reciclaje"
             android:label="Reciclaje" />
         <activity android:name=".Home" />
+
         <activity
             android:name=".Account"
             android:label="Mi Cuenta" />
-        <activity android:name=".Activity_inicio" />
+        <activity android:name=".Inicio" />
         <activity android:name=".Editar" />
         <activity android:name=".Mostrar" />
         <activity android:name=".Registrar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".persona.CrearPersonaActivity"
-            android:label="Crear Persona">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".persona.MostrarEditarPersonaActivity"
-            android:label="Detalle"
-            android:parentActivityName=".Account">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

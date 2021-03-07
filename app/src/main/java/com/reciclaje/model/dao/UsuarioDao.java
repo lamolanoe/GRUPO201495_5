@@ -109,11 +109,23 @@ public class UsuarioDao {
         cv.put("pass", u.getPassword());
         cv.put("nombre", u.getNombre());
         cv.put("ciudad", u.getCiudad());
-        return (sql.update("usuario", cv,"id"+u.getId(),null)> 0);
+/*
+    OJO AL CAMNBIO EN EL TERCER Y CUARTO PARÀMETROS
+    el cuarto paràmetro debe ser convertido primero a String
+     */
+        //return (sql.update("usuario", cv,"id"+u.getId(),null)> 0);
+        return (sql.update("usuario", cv,"id=?",new String[]{String.valueOf(u.getId())})> 0);
+
     }
 
-    public boolean deleteUsuario(int id){
-        return (sql.delete("usuario","id"+id,null)>0);
+    /*
+    ESTE METODDO UTILIZA UN Integer PARA PODER HACER UN .toString(). ADICIONALMENTE DEBES
+    ENVIAR EL ARGUMENTO EN EL TERCER PARÀMETRO. EN LA CLAUSULA WHERE EL SIGNO DE INTERROGACIÒN DE id=?
+    SERÀ REEMPLAZADO POR EL PRIMER VALOR QUE SE ENCUENTRA EN EL TERCER PARÀMETRO DENTRO DEL VECTOR DE
+    STRINGS
+     */
+    public boolean deleteUsuario(Integer id){
+        return (sql.delete("usuario","id=?",new String[]{id.toString()})>0);
     }
 
     public int updatePassword(String idUsuario, String password) {

@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.reciclaje.model.entity.Persona;
 import com.reciclaje.model.entity.Usuario;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PersonaDao {
 
     SQLiteDatabase sqLiteDatabase;
@@ -71,5 +74,25 @@ public class PersonaDao {
         contentValues.put("correo", persona.getCorreo());
         contentValues.put("telefono", persona.getTelefono());
         return (sqLiteDatabase.update("persona", contentValues,"idPersona=?",new String[] {persona.getIdPersona().toString()}));
+    }
+
+    public List<Persona> getAllPersona() {
+        Persona persona = new Persona();
+        List<Persona> list = new ArrayList<>();
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM persona", new String[] {});
+        if (c.moveToLast()) {
+            do {
+                persona.setIdPersona(c.getInt(c.getColumnIndex("idPersona")));
+                persona.setNombre(c.getString(c.getColumnIndex("nombre")));
+                persona.setApellido(c.getString(c.getColumnIndex("apellido")));
+                persona.setCorreo(c.getString(c.getColumnIndex("correo")));
+                persona.setTelefono(c.getString(c.getColumnIndex("telefono")));
+                persona.setIdUsuario(c.getInt(c.getColumnIndex("idUsuario")));
+                list.add(persona);
+            }while(c.moveToNext());
+
+
+        }
+        return list;
     }
 }

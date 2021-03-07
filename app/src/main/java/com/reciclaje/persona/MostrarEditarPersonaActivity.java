@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.reciclaje.Account;
 import com.reciclaje.Home;
-import com.reciclaje.MainActivity;
 import com.reciclaje.Puntos;
 import com.reciclaje.R;
 import com.reciclaje.Reciclaje;

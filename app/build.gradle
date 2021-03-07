@@ -11,11 +11,8 @@ android {
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 24
-        versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false

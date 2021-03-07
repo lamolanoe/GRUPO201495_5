@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.reciclaje.Home;
-import com.reciclaje.MainActivity;
 import com.reciclaje.R;
 import com.reciclaje.model.dao.PersonaDao;
 import com.reciclaje.model.entity.Persona;

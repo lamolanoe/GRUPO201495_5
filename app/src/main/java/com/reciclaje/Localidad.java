@@ -24,11 +24,17 @@ public class Localidad extends AppCompatActivity implements OnMapReadyCallback, 
 
     ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
     private GoogleMap mMap;
+    String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localidad);
+
+        Bundle parametros = this.getIntent().getExtras();
+        if (parametros != null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
 
         btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
         btnHome = (ImageButton) findViewById(R.id.btnHome);
@@ -65,20 +71,32 @@ public class Localidad extends AppCompatActivity implements OnMapReadyCallback, 
         switch (v.getId()) {
 
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent b = new Intent(Localidad.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                b.putExtras(btnH);
                 startActivity(b);
                 break;
 
             case R.id.btnPuntos:
+                Bundle btnP = new Bundle();
                 Intent c = new Intent(Localidad.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                c.putExtras(btnP);
                 startActivity(c);
                 break;
             case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
                 Intent d = new Intent(Localidad.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                d.putExtras(btnC);
                 startActivity(d);
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent p = new Intent(Localidad.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
                 startActivity(p);
                 break;
         }

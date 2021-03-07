@@ -83,19 +83,31 @@ public class CambioPasswordActivity extends AppCompatActivity implements View.On
                 break;
 
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent g = new Intent(CambioPasswordActivity.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                g.putExtras(btnH);
                 startActivity(g);
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent p = new Intent(CambioPasswordActivity.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
                 startActivity(p);
                 break;
             case R.id.btnPuntos:
+                Bundle btnP = new Bundle();
                 Intent d = new Intent(CambioPasswordActivity.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                d.putExtras(btnP);
                 startActivity(d);
                 break;
             case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
                 Intent c = new Intent(CambioPasswordActivity.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
                 startActivity(c);
                 break;
         }

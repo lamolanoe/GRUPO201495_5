@@ -53,29 +53,42 @@ UsuarioDao dao;
     public void onClick(View v) {
         switch (v.getId()) {
           case R.id.btnLocalidad:
+              Bundle btnL = new Bundle();
                 Intent a=new Intent(Reciclaje.this,Localidad.class);
-                //a.putExtra("Id",id);
+              btnL.putString("Id", idUsuario);
+              a.putExtras(btnL);
                 startActivity(a);
                 break;
           case R.id.btnCategoria:
+              Bundle btnCa = new Bundle();
                 Intent e=new Intent(Reciclaje.this,Categoria.class);
-                //a.putExtra("Id",id);
+              btnCa.putString("Id", idUsuario);
+              e.putExtras(btnCa);
                 startActivity(e);
                 break;
 
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent b = new Intent(Reciclaje.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                b.putExtras(btnH);
                 startActivity(b);
                 break;
             case R.id.btnReciclaje:
-
+                Bundle btnR = new Bundle();
+                Intent p = new Intent(Reciclaje.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
+                startActivity(p);
                 break;
             case R.id.btnPuntos:
-                Intent c = new Intent(Reciclaje.this, Puntos.class);
-                startActivity(c);
+
                 break;
             case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
                 Intent d = new Intent(Reciclaje.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                d.putExtras(btnC);
                 startActivity(d);
                 break;
 

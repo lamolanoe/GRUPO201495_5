@@ -67,8 +67,11 @@ UsuarioDao dao;
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnEditar:
-                Intent a=new Intent(Account.this,Editar.class);
-                //a.putExtra("Id",id);
+            case R.id.btnMostrar:
+                Bundle edit = new Bundle();
+                Intent a=new Intent(Account.this,MostrarEditarPersonaActivity.class);
+                edit.putString("Id", idUsuario);
+                a.putExtras(edit);
                 startActivity(a);
                 break;
             case R.id.btnEliminar:
@@ -97,29 +100,30 @@ UsuarioDao dao;
                 });
                 b.show();
                 break;
-            case R.id.btnMostrar:
-                Bundle extras = new Bundle();
-                Intent c=new Intent(Account.this, MostrarEditarPersonaActivity.class);
-                extras.putString("Id", idUsuario);
-                c.putExtras(extras);
-                startActivity(c);
-                break;
             case R.id.btnSalir:
                 Intent i2=new Intent(Account.this,LoginActivity.class);
                 startActivity(i2);
                 finish();
                 break;
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent g = new Intent(Account.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                g.putExtras(btnH);
                 startActivity(g);
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent p = new Intent(Account.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
                 startActivity(p);
-
                 break;
             case R.id.btnPuntos:
+                Bundle btnP = new Bundle();
                 Intent d = new Intent(Account.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                d.putExtras(btnP);
                 startActivity(d);
                 break;
             case R.id.btnCuenta:

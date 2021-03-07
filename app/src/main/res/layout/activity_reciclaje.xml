@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="63dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -22,9 +22,9 @@
                 android:id="@+id/btnLocalidad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="#4CAF50"
-                android:layout_margin="2dp"
                 android:text="Localidad"
                 android:textColor="#ffffff"
                 android:textSize="11dp"
@@ -35,9 +35,9 @@
                 android:id="@+id/btnCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="#4CAF50"
-                android:layout_margin="2dp"
                 android:text="Categorias"
                 android:textColor="#ffffff"
                 android:textSize="11dp"

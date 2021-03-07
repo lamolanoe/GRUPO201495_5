@@ -17,11 +17,18 @@ public class Puntos extends AppCompatActivity implements View.OnClickListener{
     Button btnScan;
     EditText txtResultado;
     ImageButton btnHome,btnReciclar,btnPuntos,btnCuenta;
+    String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puntos);
+
+        Bundle parametros = this.getIntent().getExtras();
+        if (parametros != null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
+
         btnScan = findViewById(R.id.btnScan);
         txtResultado = findViewById(R.id.txtResultado);
 
@@ -51,11 +58,17 @@ public class Puntos extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent b = new Intent(Puntos.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                b.putExtras(btnH);
                 startActivity(b);
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent c = new Intent(Puntos.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                c.putExtras(btnR);
                 startActivity(c);
 
                 break;
@@ -63,7 +76,10 @@ public class Puntos extends AppCompatActivity implements View.OnClickListener{
 
                 break;
             case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
                 Intent d = new Intent(Puntos.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                d.putExtras(btnC);
                 startActivity(d);
                 break;
 

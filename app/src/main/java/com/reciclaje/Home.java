@@ -61,11 +61,17 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnHome:
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent b = new Intent(Home.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                b.putExtras(btnR);
                 startActivity(b);
                 break;
             case R.id.btnPuntos:
+                Bundle btnP = new Bundle();
                 Intent c = new Intent(Home.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                c.putExtras(btnP);
                 startActivity(c);
                 break;
             case R.id.btnCuenta:

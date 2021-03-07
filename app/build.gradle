@@ -8,9 +8,9 @@ android {
 
     defaultConfig {
         applicationId "com.reciclaje"
-        minSdkVersion 12
+        minSdkVersion 24
         targetSdkVersion 30
-        versionCode 1
+        versionCode 24
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

@@ -18,95 +18,235 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.Reciclaje.PopupOverlay" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-             >
+
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="1">
-
+    android:stretchColumns="1"
+    android:background="#A5D6A7">
+        <View
+            android:layout_height="35dip"
+            android:background="#A5D6A7" />
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="vidrio"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="20dp"/>
         <TextView
             android:text="Botellas, vidrios rotos."
-            android:gravity="right"
-            android:padding="3dip" />
+            android:gravity="center"
+            android:padding="3dip"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
 
             <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_weight="0.2"
             android:src="@drawable/blanco"
             android:id="@+id/blanco"
             android:gravity="center"/>
     </TableRow>
-
+    <View
+        android:layout_height="35dip"
+        android:background="#A5D6A7" />
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="Quimicos"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+             android:textSize="20dp"/>
         <TextView
-            android:text=""
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+            android:text="Baterias, pilas, insecticidas, etc."
+            android:gravity="center"
+            android:padding="3dip"
+            android:textColor="#000000"
+             android:textSize="20dp"/>
 
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/negro"
+            android:id="@+id/negro"
+            android:gravity="center"/>
+    </TableRow>
+    <View
+        android:layout_height="35dip"
+        android:background="#A5D6A7" />
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="Metales"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+             android:textSize="20dp"/>
         <TextView
-            android:text=""
-            android:gravity="right"
-            android:padding="3dip" />
+            android:text="Plasticos y envases metalicos"
+            android:gravity="center"
+            android:padding="3dip"
+            android:textColor="#000000"
+             android:textSize="20dp"/>
+
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/blanco"
+            android:id="@+id/bla"
+            android:gravity="center"/>
     </TableRow>
 
-
+    <View
+        android:layout_height="35dip"
+        android:background="#A5D6A7" />
 
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="Orgánicos"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+             android:textSize="20dp"/>
         <TextView
             android:layout_column="1"
-            android:text=""
-            android:padding="3dip" />
-    </TableRow>
+            android:text="Huesos, restos de alimentos, etc."
+            android:padding="3dip"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
 
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/verde"
+            android:id="@+id/verde"
+            android:gravity="center"/>
+    </TableRow>
+    <View
+        android:layout_height="35dip"
+        android:background="#A5D6A7" />
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="Electronica"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+             android:textSize="20dp"/>
         <TextView
             android:layout_column="1"
-            android:text=""
-            android:padding="3dip" />
+            android:text="Electrodomesticos, accesorios de pc."
+            android:padding="3dip"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20dp"/>
 
+         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/negro"
+            android:id="@+id/nego"
+            android:gravity="center"/>
     </TableRow>
 
     <View
-        android:layout_height="2dip"
-        android:background="#ffffff" />
+        android:layout_height="35dip"
+        android:background="#A5D6A7" />
 
     <TableRow>
         <TextView
             android:layout_column="1"
             android:text="Papeles y cartón"
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+             android:textSize="20dp"/>
+        <TextView
+            android:layout_column="1"
+            android:text="Todo tipo de papeles, entre otros."
+            android:padding="3dip"
+            android:gravity="center"
+            android:textColor="#000000"
+             android:textSize="20dp"/>
+
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/blanco"
+            android:id="@+id/blano"
+            android:gravity="center"
+            />
     </TableRow>
 </TableLayout>
+
+
+
  </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnHome"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_home_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageButton
+                android:id="@+id/btnReciclaje"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_recicling_black"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageButton
+                android:id="@+id/btnPuntos"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_points_black"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageButton
+                android:id="@+id/btnCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_account_black"
+                tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>
 

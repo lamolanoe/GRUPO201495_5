@@ -21,7 +21,7 @@
             <Button
                 android:id="@+id/btnLocalidad"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:layout_margin="2dp"
@@ -34,7 +34,7 @@
             <Button
                 android:id="@+id/btnCategoria"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:layout_margin="2dp"
@@ -55,8 +55,8 @@
 
             <Button
                 android:id="@+id/btnTipsReciclaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Tips de reciclaje" />
         </LinearLayout>

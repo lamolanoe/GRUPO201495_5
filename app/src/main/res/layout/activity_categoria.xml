@@ -24,10 +24,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="1"
-    android:background="#A5D6A7">
+    >
         <View
-            android:layout_height="35dip"
-            android:background="#A5D6A7" />
+            android:layout_height="20dip"
+            android:background="#ffffff" />
     <TableRow>
         <TextView
             android:layout_column="1"
@@ -53,8 +53,8 @@
             android:gravity="center"/>
     </TableRow>
     <View
-        android:layout_height="35dip"
-        android:background="#A5D6A7" />
+        android:layout_height="20dip"
+        android:background="#ffffff" />
     <TableRow>
         <TextView
             android:layout_column="1"
@@ -80,8 +80,8 @@
             android:gravity="center"/>
     </TableRow>
     <View
-        android:layout_height="35dip"
-        android:background="#A5D6A7" />
+        android:layout_height="20dip"
+        android:background="#ffffff" />
     <TableRow>
         <TextView
             android:layout_column="1"
@@ -108,8 +108,8 @@
     </TableRow>
 
     <View
-        android:layout_height="35dip"
-        android:background="#A5D6A7" />
+        android:layout_height="20dip"
+        android:background="#ffffff" />
 
     <TableRow>
         <TextView
@@ -137,8 +137,8 @@
             android:gravity="center"/>
     </TableRow>
     <View
-        android:layout_height="35dip"
-        android:background="#A5D6A7" />
+        android:layout_height="20dip"
+        android:background="#ffffff" />
     <TableRow>
         <TextView
             android:layout_column="1"
@@ -166,8 +166,8 @@
     </TableRow>
 
     <View
-        android:layout_height="35dip"
-        android:background="#A5D6A7" />
+        android:layout_height="20dip"
+        android:background="#ffffff" />
 
     <TableRow>
         <TextView
@@ -195,6 +195,16 @@
             android:gravity="center"
             />
     </TableRow>
+    <View
+        android:layout_height="20dip"
+        android:background="#ffffff" />
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/basura"
+            android:id="@+id/basura"
+            android:gravity="center"/>
 </TableLayout>
 
 

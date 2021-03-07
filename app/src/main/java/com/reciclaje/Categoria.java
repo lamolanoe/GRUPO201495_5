@@ -23,7 +23,7 @@ public class Categoria extends AppCompatActivity implements View.OnClickListener
    int id=0;
 Usuario u;
 UsuarioDao dao;
-
+ImageView basura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ UsuarioDao dao;
          blano = findViewById(R.id.blano);
          nego = findViewById(R.id.nego);
          bla = findViewById(R.id.bla);
-
+         basura = findViewById(R.id.basura);
 
         btnReciclar = (ImageButton) findViewById(R.id.btnReciclaje);
           btnHome = (ImageButton) findViewById(R.id.btnHome);

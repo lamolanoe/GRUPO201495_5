@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
-import com.reciclaje.perfil.PerfilActivity;
 import com.reciclaje.persona.MostrarEditarPersonaActivity;
 
 public class Account extends AppCompatActivity implements View.OnClickListener {

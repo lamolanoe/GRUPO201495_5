@@ -18,11 +18,13 @@ public class PerfilDao {
     Context context;
     public static final String DATABASE_NAME = "DBPerfiles";
     public static final String TABLE_NAME = "create table if not exists perfil(idPerfil integer primary key autoincrement, descripcion text)";
+    public static final String INSERT_PROFILE ="INSERT INTO perfil(descripcion) SELECT usuario WHERE NOT EXISTS (SELECT 1 FROM perfil WHERE descripcion = 'usuario'))";
 
     public PerfilDao(Context context){
         this.context = context;
         sqLiteDatabase = context.openOrCreateDatabase(DATABASE_NAME, context.MODE_PRIVATE, null);
         sqLiteDatabase.execSQL(TABLE_NAME);
+        sqLiteDatabase.execSQL(INSERT_PROFILE);
         perfil = new Perfil();
     }
 

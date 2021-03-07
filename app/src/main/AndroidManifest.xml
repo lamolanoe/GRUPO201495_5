@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reciclaje">
         <activity
+            android:name=".Localidad"
+            android:label="Mapa"
+            android:parentActivityName=".Reciclaje" />
+        <activity
             android:name=".CambioPasswordActivity"
             android:label="Cambiar contraseña"
             android:parentActivityName=".Account" />
@@ -37,6 +41,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".persona.CrearPersonaActivity"
+            android:label="Crear Persona"/>
+        <activity
+            android:name=".persona.MostrarEditarPersonaActivity"
+            android:label="Detalle"
+            android:parentActivityName=".Account"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCJYfWrObMgHaDjLStXQi7clF5tCcZbECg" />
     </application>
 
 </manifest>

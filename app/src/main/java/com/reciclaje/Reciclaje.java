@@ -75,14 +75,14 @@ UsuarioDao dao;
                 startActivity(b);
                 break;
             case R.id.btnReciclaje:
+
+                break;
+            case R.id.btnPuntos:
                 Bundle btnR = new Bundle();
-                Intent p = new Intent(Reciclaje.this, Reciclaje.class);
+                Intent p = new Intent(Reciclaje.this, Puntos.class);
                 btnR.putString("Id", idUsuario);
                 p.putExtras(btnR);
                 startActivity(p);
-                break;
-            case R.id.btnPuntos:
-
                 break;
             case R.id.btnCuenta:
                 Bundle btnC = new Bundle();

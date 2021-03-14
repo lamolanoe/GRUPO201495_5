@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.reciclaje.model.dao.UsuarioDao;
+import com.reciclaje.persona.MostrarEditarPersonaActivity;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -131,6 +133,21 @@ public class CambioPasswordActivity extends AppCompatActivity implements View.On
             sb.append(String.format("%02x", b));
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Bundle btnC = new Bundle();
+                Intent c = new Intent(CambioPasswordActivity.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
+                startActivity(c);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

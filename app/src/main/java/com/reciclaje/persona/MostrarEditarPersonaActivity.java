@@ -1,10 +1,12 @@
 package com.reciclaje.persona;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.reciclaje.Account;
+import com.reciclaje.CambioPasswordActivity;
 import com.reciclaje.Home;
 import com.reciclaje.Puntos;
 import com.reciclaje.R;
@@ -102,23 +105,50 @@ public class MostrarEditarPersonaActivity extends AppCompatActivity implements V
                 break;*/
 
             case R.id.btnHome:
+                Bundle btnH = new Bundle();
                 Intent g = new Intent(MostrarEditarPersonaActivity.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                g.putExtras(btnH);
                 startActivity(g);
                 break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent p = new Intent(MostrarEditarPersonaActivity.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
                 startActivity(p);
                 break;
             case R.id.btnPuntos:
+                Bundle btnP = new Bundle();
                 Intent d = new Intent(MostrarEditarPersonaActivity.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                d.putExtras(btnP);
                 startActivity(d);
                 break;
             case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
                 Intent c = new Intent(MostrarEditarPersonaActivity.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
                 startActivity(c);
                 break;
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Bundle btnC = new Bundle();
+                Intent c = new Intent(MostrarEditarPersonaActivity.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
+                startActivity(c);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

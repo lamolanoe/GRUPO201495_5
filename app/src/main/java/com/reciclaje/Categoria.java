@@ -7,10 +7,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.reciclaje.model.dao.UsuarioDao;
 import com.reciclaje.model.entity.Usuario;
+import com.reciclaje.persona.MostrarEditarPersonaActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
@@ -25,10 +27,17 @@ Usuario u;
 UsuarioDao dao;
 ImageView basura;
 
+    String idUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
+
+        Bundle parametros = this.getIntent().getExtras();
+        if (parametros != null){
+            idUsuario = getIntent().getStringExtra("Id");
+        }
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         blanco = findViewById(R.id.blanco);
@@ -54,25 +63,51 @@ ImageView basura;
 
 
             case R.id.btnHome:
-                Intent b = new Intent(Categoria.this, Home.class);
-                startActivity(b);
+                Bundle btnH = new Bundle();
+                Intent g = new Intent(Categoria.this, Home.class);
+                btnH.putString("Id", idUsuario);
+                g.putExtras(btnH);
+                startActivity(g);
                 break;
 
             case R.id.btnPuntos:
-                Intent c = new Intent(Categoria.this, Puntos.class);
-                startActivity(c);
-                break;
-            case R.id.btnCuenta:
-                Intent d = new Intent(Categoria.this, Account.class);
+                Bundle btnP = new Bundle();
+                Intent d = new Intent(Categoria.this, Puntos.class);
+                btnP.putString("Id", idUsuario);
+                d.putExtras(btnP);
                 startActivity(d);
                 break;
+            case R.id.btnCuenta:
+                Bundle btnC = new Bundle();
+                Intent c = new Intent(Categoria.this, Account.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
+                startActivity(c);
+                break;
             case R.id.btnReciclaje:
+                Bundle btnR = new Bundle();
                 Intent p = new Intent(Categoria.this, Reciclaje.class);
+                btnR.putString("Id", idUsuario);
+                p.putExtras(btnR);
                 startActivity(p);
-
                 break;
 
 
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Bundle btnC = new Bundle();
+                Intent c = new Intent(Categoria.this, Reciclaje.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
+                startActivity(c);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

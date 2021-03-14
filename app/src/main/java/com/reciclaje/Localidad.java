@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -99,6 +100,21 @@ public class Localidad extends AppCompatActivity implements OnMapReadyCallback, 
                 p.putExtras(btnR);
                 startActivity(p);
                 break;
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Bundle btnC = new Bundle();
+                Intent c = new Intent(Localidad.this, Reciclaje.class);
+                btnC.putString("Id", idUsuario);
+                c.putExtras(btnC);
+                startActivity(c);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
